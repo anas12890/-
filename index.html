@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#14573a">
+  <meta name="description" content="تحدي الاستقامة على الصلاة: صفحة تفاعلية لمتابعة أعمالك اليومية في المحافظة على الصلاة والدعوة إليها.">
+  <title>تحدي الاستقامة على الصلاة</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link no-print" href="#tasks-section">تخطَّ إلى المهام</a>
+
+  <!-- الترويسة -->
+  <header class="site-header no-print">
+    <div class="container">
+      <p class="bismillah">بسم الله الرحمن الرحيم</p>
+      <h1>تحدي الاستقامة على الصلاة</h1>
+      <p class="site-subtitle">ثمانية أعمال يومية تعينك على المحافظة على الصلاة والدعوة إليها، نقطة واحدة لكل عمل تُنجزه.</p>
+    </div>
+  </header>
+
+  <!-- شريط النقاط العلوي -->
+  <div class="score-bar no-print" aria-label="ملخص النقاط">
+    <div class="container score-bar__inner">
+      <div class="score-bar__points">
+        <span class="score-bar__label">نقاطك</span>
+        <strong class="score-bar__value"><span data-score>0</span> / <span data-total>8</span></strong>
+      </div>
+      <div class="score-bar__progress">
+        <div class="progress" role="progressbar" aria-label="نسبة الإنجاز" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progressbar>
+          <div class="progress__fill" data-progress-fill></div>
+        </div>
+      </div>
+      <div class="score-bar__percent"><span data-percent>0</span>%</div>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- بيانات المتسابق -->
+    <section class="panel no-print" aria-labelledby="participant-title">
+      <h2 id="participant-title" class="panel__title"><span aria-hidden="true">🧑‍💼</span> بيانات المتسابق</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="participant-name">اسم المتسابق</label>
+          <input type="text" id="participant-name" name="participant-name" placeholder="اكتب اسمك هنا" maxlength="60" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="challenge-date">تاريخ اليوم</label>
+          <input type="date" id="challenge-date" name="challenge-date">
+        </div>
+      </div>
+      <p class="hint">يُحفظ لكل تاريخ سجل مستقل، فيمكنك الرجوع إلى أي يوم سابق دون أن تختلط البيانات.</p>
+    </section>
+
+    <!-- قائمة المهام -->
+    <section class="panel no-print" id="tasks-section" aria-labelledby="tasks-title">
+      <div class="panel__head">
+        <h2 id="tasks-title" class="panel__title"><span aria-hidden="true">🕌</span> مهام تحدي الاستقامة على الصلاة</h2>
+        <p class="panel__counter"><span data-completed>0</span> من <span data-total>8</span> مهام مكتملة</p>
+      </div>
+      <ul class="task-list" id="task-list" aria-live="polite"></ul>
+      <noscript><p class="hint">هذه الصفحة تحتاج إلى تفعيل JavaScript لتعمل.</p></noscript>
+    </section>
+
+    <!-- حصيلة الإنجاز -->
+    <section class="result" id="result-section" aria-labelledby="result-title">
+      <div class="print-only print-header">
+        <p>بسم الله الرحمن الرحيم</p>
+        <h1>تحدي الاستقامة على الصلاة</h1>
+      </div>
+
+      <h2 id="result-title" class="result__title">حصيلة إنجازك اليوم</h2>
+
+      <dl class="result__info">
+        <div><dt>اسم المتسابق</dt><dd id="result-name">—</dd></div>
+        <div><dt>تاريخ التحدي</dt><dd id="result-date">—</dd></div>
+      </dl>
+
+      <div class="result__score">
+        <div class="score-ring" id="score-ring" aria-hidden="true">
+          <div class="score-ring__inner">
+            <span class="score-ring__num"><span data-score>0</span></span>
+            <span class="score-ring__of">من <span data-total>8</span></span>
+          </div>
+        </div>
+        <div class="result__score-text">
+          <p class="result__points">النقاط: <strong><span data-score>0</span> / <span data-total>8</span></strong></p>
+          <p class="result__percent">نسبة الإنجاز: <strong><span data-percent>0</span>%</strong></p>
+          <div class="progress progress--light" role="progressbar" aria-label="نسبة الإنجاز النهائية" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progressbar>
+            <div class="progress__fill" data-progress-fill></div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="result__stats">
+        <li><span class="stat-num" data-completed>0</span><span class="stat-label">مهام مكتملة</span></li>
+        <li><span class="stat-num" data-remaining>8</span><span class="stat-label">مهام غير مكتملة</span></li>
+      </ul>
+
+      <p class="result__message" id="result-message" aria-live="polite">بداية الطريق، استعن بالله وابدأ بخطوة جديدة.</p>
+
+      <div class="actions no-print">
+        <button type="button" class="btn btn--primary" id="btn-share">
+          <span aria-hidden="true">📤</span> مشاركة النتيجة
+        </button>
+        <button type="button" class="btn btn--light" id="btn-print">
+          <span aria-hidden="true">🖨️</span> طباعة التقرير
+        </button>
+        <button type="button" class="btn btn--outline" id="btn-reset">
+          <span aria-hidden="true">🔄</span> إعادة تعيين التحدي
+        </button>
+        <button type="button" class="btn btn--danger" id="btn-clear-day">
+          <span aria-hidden="true">🗑️</span> مسح بيانات اليوم
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer no-print">
+    <p>تقبّل الله منا ومنكم صالح الأعمال</p>
+  </footer>
+
+  <!-- نافذة التأكيد -->
+  <dialog id="confirm-dialog" class="dialog no-print" aria-labelledby="dialog-title" aria-describedby="dialog-message">
+    <form method="dialog" class="dialog__box">
+      <h3 id="dialog-title">تأكيد</h3>
+      <p id="dialog-message"></p>
+      <div class="dialog__actions">
+        <button type="submit" value="confirm" class="btn btn--danger" id="dialog-confirm">تأكيد</button>
+        <button type="submit" value="cancel" class="btn btn--light" id="dialog-cancel">إلغاء</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- إشعار مؤقت -->
+  <div class="toast no-print" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- حاوية الاحتفال -->
+  <div class="confetti no-print" id="confetti" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
